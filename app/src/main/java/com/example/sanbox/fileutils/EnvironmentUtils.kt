@@ -7,6 +7,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import com.example.sanbox.fileutils.constants.FileConstants
 import java.io.File
 
 /**
@@ -129,7 +130,8 @@ object EnvironmentUtils {
             )
 
             relativePath =
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath + dirPath
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath +
+                        File.separator + FileConstants.PUBLIC_DIR_NAME + File.separator + dirPath
 
 
         } else if (path.startsWith(Environment.DIRECTORY_PICTURES) || path.startsWith(File.separator + Environment.DIRECTORY_PICTURES)) {
@@ -139,30 +141,40 @@ object EnvironmentUtils {
             )
 
             relativePath =
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath + dirPath
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath +
+                        File.separator + FileConstants.PUBLIC_DIR_NAME + File.separator + dirPath
+
         } else if (path.startsWith(Environment.DIRECTORY_MOVIES) || path.startsWith(File.separator + Environment.DIRECTORY_MOVIES)) {
+
             val dirPath = path.substring(
                 path.indexOf(Environment.DIRECTORY_MOVIES) + Environment.DIRECTORY_MOVIES.length,
                 path.length
             )
 
             relativePath =
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).absolutePath + dirPath
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).absolutePath +
+                        File.separator + FileConstants.PUBLIC_DIR_NAME + File.separator + dirPath
+
         } else if (path.startsWith(Environment.DIRECTORY_DOWNLOADS) || path.startsWith(File.separator + Environment.DIRECTORY_DOWNLOADS)) {
+
             val dirPath = path.substring(
                 path.indexOf(Environment.DIRECTORY_DOWNLOADS) + Environment.DIRECTORY_DOWNLOADS.length,
                 path.length
             )
-
             relativePath =
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + dirPath
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath +
+                        File.separator + FileConstants.PUBLIC_DIR_NAME + File.separator + dirPath
+
+
         } else if (path.startsWith(Environment.DIRECTORY_DOCUMENTS) || path.startsWith(File.separator + Environment.DIRECTORY_DOCUMENTS)) {
+
             val dirPath = path.substring(
                 path.indexOf(Environment.DIRECTORY_DOCUMENTS) + Environment.DIRECTORY_DOCUMENTS.length,
                 path.length
             )
             relativePath =
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).absolutePath + dirPath
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).absolutePath +
+                        File.separator + FileConstants.PUBLIC_DIR_NAME + File.separator + dirPath
         } else {
             relativePath = path
         }

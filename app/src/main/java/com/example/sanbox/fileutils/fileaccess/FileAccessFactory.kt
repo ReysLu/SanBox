@@ -2,6 +2,7 @@ package com.example.sanbox.fileutils.fileaccess
 
 import android.os.Build
 import android.os.Environment
+import android.util.Log
 import com.example.sanbox.fileutils.EnvironmentUtils
 
 /**
@@ -14,8 +15,11 @@ object FileAccessFactory {
     fun getCreateFileAccess(filePath: String): FileAccessInterface {
 
         return if (isSandbox()&&isPublicDir(filePath)) {
+            Log.i("FileAccessFactory","MediaStoreAccessImp")
             MediaStoreAccessImp.instance
         } else {
+            Log.i("FileAccessFactory","FileAccessImp")
+
             FileAccessImp.instance
         }
 

@@ -2,6 +2,7 @@ package com.example.sanbox.fileutils.request
 
 import android.content.ContentValues
 import android.net.Uri
+import com.example.sanbox.fileutils.FileAccessManager
 import com.example.sanbox.fileutils.constants.FileType
 import java.io.File
 
@@ -9,8 +10,17 @@ import java.io.File
  * Author: Even
  * Create time: 2021/8/13 16:28
  * Des:创建文件请求类
+ *  val newFileRequest = NewFileRequest.Builder()
+ *      .setFile(File(path))
+ *      .setFileType(FileType.FILE_TYPE_IMAGE)
+ *      .build()
+ *
+ *   val response = FileAccessManager.newCreateFile(this, newFileRequest)
+ *
  */
-class NewFileRequest(){
+
+class NewFileRequest{
+
      var mFile: File? = null
      var mContentValues: ContentValues? = null
      var mContentUri: Uri? = null

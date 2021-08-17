@@ -21,6 +21,10 @@ import java.io.OutputStream
  */
 object FileAccessManager {
 
+
+    /**
+     * 创建新文件，但不带输出流，Android Q 会返回uri 普通模式会返回file
+     */
     fun newCreateFile(context: Context, request: NewFileRequest): FileResponse? {
         return if (request.mFile != null) {
             FileAccessFactory.getCreateFileAccess(request.mFile!!.absolutePath)
@@ -32,6 +36,9 @@ object FileAccessManager {
     }
 
 
+    /**
+     * 打开文件并获取输入流，可以对文件进行读取
+     */
     fun getFileInputStream(context: Context, request: OpenFileRequest): InputStream? {
         return if (request.mFile != null) {
             FileAccessFactory.getCreateFileAccess(request.mFile!!.absolutePath)
@@ -42,7 +49,9 @@ object FileAccessManager {
 
     }
 
-
+    /**
+     * 打开文件并获取输出流，可以对文件进行写入，注意该输出流是覆盖写入
+     */
     fun getFileOutputStream(context: Context, request: OpenFileRequest): OutputStream? {
         return if (request.mFile != null) {
             FileAccessFactory.getCreateFileAccess(request.mFile!!.absolutePath)
@@ -53,6 +62,9 @@ object FileAccessManager {
 
     }
 
+    /**
+     * 删除文件
+     */
     fun deleteFile(context: Context, request: DeleteFileRequest): Boolean {
         return if (request.mFile != null) {
             FileAccessFactory.getCreateFileAccess(request.mFile!!.absolutePath)
@@ -65,7 +77,7 @@ object FileAccessManager {
 
 
     /**
-     * 通过返回结果获取输出流
+     * 通过返回结果获取输出流，注意该输出流是覆盖写入
      */
     fun getFileOutputStream(context: Context, response: FileResponse): OutputStream? {
 
@@ -91,5 +103,20 @@ object FileAccessManager {
 
 
     }
+
+    /**
+     * 创建新文件并获取输出流，注意该输出流是覆盖写入
+     */
+    fun getNewFileOutputStream(context: Context, request: NewFileRequest): OutputStream?{
+        val response=newCreateFile(context,request)
+
+        return if (response!=null){
+            getFileOutputStream(context,response)
+        }else{
+            null
+        }
+
+    }
+
 
 }
