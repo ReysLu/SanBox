@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Hello World!"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="保存图片"
+        android:gravity="center"
+        android:background="@color/teal_200"
+        android:layout_marginBottom="10dp"
+        android:onClick="saveImage"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="保存txt"
+        android:gravity="center"
+        android:background="@color/teal_200"
+        android:layout_marginBottom="10dp"
+        android:onClick="saveTxt"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="读取txt"
+        android:gravity="center"
+        android:background="@color/teal_200"
+        android:layout_marginBottom="10dp"
+        android:onClick="readTxt"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="写入内容txt"
+        android:gravity="center"
+        android:background="@color/teal_200"
+        android:layout_marginBottom="10dp"
+        android:onClick="writeTxt"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="删除txt"
+        android:gravity="center"
+        android:background="@color/teal_200"
+        android:layout_marginBottom="10dp"
+        android:onClick="deleteTxt"/>
+
+</LinearLayout>
